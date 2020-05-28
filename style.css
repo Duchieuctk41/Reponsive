@@ -59,7 +59,7 @@ nav {
 
 .bg {
     /* The image used */
-    background-image: url("/image/moutain.jpg");
+    background-image: url("./image/moutain.jpg");
     /* Full height */
     height: 100%;
     /* Center and scale the image nicely */
