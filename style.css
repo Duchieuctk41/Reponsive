@@ -1,0 +1,230 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: #5d4954;
+    font-family: 'Poppins', sans-serif;
+    opacity: 1;
+}
+
+.logo {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 20px;
+}
+
+.nav-links {
+    z-index: 1;
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.burger {
+    display: none;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("/image/moutain.jpg");
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    position: initial;
+    opacity: 1;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+
+.caption span.border {
+    background-color: #111;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+}
+
+@keyframes bounce-animation {
+    16.65% {
+        -webkit-transform: translateY(8px);
+        transform: translateY(8px);
+    }
+    33.3% {
+        -webkit-transform: translateY(-6px);
+        transform: translateY(-6px);
+    }
+    49.95% {
+        -webkit-transform: translateY(4px);
+        transform: translateY(4px);
+    }
+    66.6% {
+        -webkit-transform: translateY(-2px);
+        transform: translateY(-2px);
+    }
+    83.25% {
+        -webkit-transform: translateY(1px);
+        transform: translateY(1px);
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+.bounce {
+    animation-name: bounce-animation;
+    animation-duration: 2s;
+}
+
+@media screen and (max-width: 1024px) {
+    .nav-links {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width:768px) {
+    html {
+        overflow-x: hidden;
+    }
+    body {
+        overflow-x: hidden;
+    }
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: #5d4954;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+    .nav-links li {
+        opacity: 1;
+    }
+    .burger {
+        display: block;
+    }
+    .caption {
+        opacity: 0;
+        position: inherit;
+    }
+}
+
+.nav-active {
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+
+/*     
+    tao hieu ung cho li  */
+
+.hoverable {
+    display: inline-block;
+    backface-visibility: hidden;
+    vertical-align: middle;
+    position: relative;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    transform: translateZ(0);
+    transition-duration: .3s;
+    transition-property: transform;
+}
+
+.hoverable:before {
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+    content: '';
+    top: 100%;
+    left: 5%;
+    height: 10px;
+    width: 90%;
+    opacity: 0;
+    background: -webkit-radial-gradient(center, ellipse, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 80%);
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 80%);
+    /* W3C */
+    transition-duration: 0.3s;
+    transition-property: transform, opacity;
+}
+
+.hoverable:hover,
+.hoverable:active,
+.hoverable:focus {
+    transform: translateY(-5px);
+}
+
+.hoverable:hover:before,
+.hoverable:active:before,
+.hoverable:focus:before {
+    opacity: 1;
+    transform: translateY(-5px);
+}
